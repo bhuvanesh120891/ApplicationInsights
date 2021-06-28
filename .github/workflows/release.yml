@@ -30,6 +30,6 @@ jobs:
         name: AspNetMonsters.ApplicationInsights
         path: ./AspNetMonsters.ApplicationInsights/AspNetMonsters.ApplicationInsights/bin/Release/AspNetMonsters.ApplicationInsights.${{ github.event.release.tag_name }}.0.nupkg
     - name: Add Github Source
-      run: dotnet nuget add source --username bhuvanesh120891 --password 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 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
+      run: dotnet nuget add source --username bhuvanesh120891 --password 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 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
     - name: Publish Nuget Package
-      run: dotnet nuget push **/*.nupkg --api-key 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 --source "github" --no-symbols true
+      run: dotnet nuget push **/*.nupkg --api-key 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 --source "github" --no-symbols true
