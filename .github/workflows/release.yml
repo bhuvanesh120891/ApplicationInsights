@@ -32,7 +32,7 @@ jobs:
     - name: Add Github Source
       run: dotnet nuget add source --username bhuvanesh120891 --password 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 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
     - name: Set Nuget apikey
-	  run: nuget setapikey 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 -source "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
+      run: nuget setapikey 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 -source "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
 	
     - name: Publish Nuget Package
       run: dotnet nuget push **/*.nupkg --source "github" -api-key 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
