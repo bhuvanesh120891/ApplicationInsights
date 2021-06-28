@@ -23,7 +23,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: AspNetMonsters.ApplicationInsights.AspNetCore
-        path: ./AspNetMonsters.ApplicationInsights/AspNetMonsters.ApplicationInsights.AspNetCore/bin/Release/AspNetMonsters.ApplicationInsights.AspNetCore.${{ github.event.release.tag_name }}.nupkg
+        path: ./AspNetMonsters.ApplicationInsights/AspNetMonsters.ApplicationInsights.AspNetCore/bin/Release/AspNetMonsters.ApplicationInsights..AspNetCore.${{ github.event.release.tag_name }}.nupkg
     - name: Archive NuGet Package
       uses: actions/upload-artifact@v1
       with:
@@ -31,4 +31,3 @@ jobs:
         path: ./AspNetMonsters.ApplicationInsights/AspNetMonsters.ApplicationInsights/bin/Release/AspNetMonsters.ApplicationInsights.${{ github.event.release.tag_name }}.nupkg
     - name: Publish Nuget Package
       run: dotnet nuget push **/*.nupkg --api-key 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 --source "github" --no-symbols true
-      
