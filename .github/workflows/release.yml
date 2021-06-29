@@ -16,6 +16,9 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1.200
+      source-url: https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json
+      env:
+        NUGET_AUTH_TOKEN: '%NUGET_AUTH_TOKEN%'
     - name: Create NuGet Package
       run: dotnet pack -c Release /p:Version=${{ github.event.release.tag_name }} /p:PackageReleaseNotes="See https://github.com/AspNetMonsters/ApplicationInsights/releases/tag/${{ github.event.release.tag_name }}"
       working-directory: ./AspNetMonsters.ApplicationInsights
@@ -29,9 +32,13 @@ jobs:
       with:
         name: AspNetMonsters.ApplicationInsights
         path: ./AspNetMonsters.ApplicationInsights/AspNetMonsters.ApplicationInsights/bin/Release/AspNetMonsters.ApplicationInsights.${{ github.event.release.tag_name }}.0.nupkg
-    - name: Add Github Source
-      run: dotnet nuget add source --username bhuvanesh120891 --password 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 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
-    - name: Set Nuget apikey
-      run: nuget setapikey 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 -source "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
+    #- name: Add Github Source
+    #  run: dotnet nuget add source --username bhuvanesh120891 --password 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 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
+    #- name: Set Nuget apikey
+    #  run: nuget setapikey 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 -source "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
     #- name: Publish Nuget Package
     #  run: dotnet nuget push **/*.nupkg --source "github" --api-key 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
+    - name: PushGithub
+      run: nuget.exe push "**/*.nupkg" -NoSymbols -SkipDuplicate
+      env:
+        NUGET_AUTH_TOKEN: ${{ secrets.NUGETTOKEN }}
