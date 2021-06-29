@@ -32,13 +32,13 @@ jobs:
       with:
         name: AspNetMonsters.ApplicationInsights
         path: ./AspNetMonsters.ApplicationInsights/AspNetMonsters.ApplicationInsights/bin/Release/AspNetMonsters.ApplicationInsights.${{ github.event.release.tag_name }}.0.nupkg
-    - name: Add Github Source
-      run: dotnet nuget add source --username bhuvanesh120891 --password ${{ secrets.NUGETTOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
+    #- name: Add Github Source
+    #  run: dotnet nuget add source --username bhuvanesh120891 --password ${{ secrets.NUGETTOKEN }} --store-password-in-clear-text --name github "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
     #- name: Set Nuget apikey
     #  run: nuget setapikey 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 -source "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
-    #- name: Publish Nuget Package
-    #  run: dotnet nuget push **/*.nupkg --source "github" --api-key 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
-    - name: PushGithub
-      run: nuget.exe push "**/*.nupkg" -NoSymbols -SkipDuplicate
-      env:
-        NUGET_AUTH_TOKEN: ${{ secrets.NUGETTOKEN }}
+    - name: Publish Nuget Package
+      run: dotnet nuget push **/*.nupkg --source "https://nuget.pkg.github.com/bhuvanesh120891/index.json" --api-key ${{ secrets.NUGETTOKEN }} -SkipDuplicate
+    #- name: PushGithub
+    #  run: nuget.exe push "**/*.nupkg" -NoSymbols -SkipDuplicate
+    #  env:
+    #    NUGET_AUTH_TOKEN: ${{ secrets.NUGETTOKEN }}
