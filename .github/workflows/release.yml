@@ -37,7 +37,7 @@ jobs:
     #- name: Set Nuget apikey
     #  run: nuget setapikey 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 -source "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
     - name: Publish Nuget Package
-      run: dotnet nuget push **/*.nupkg --source "https://nuget.pkg.github.com/bhuvanesh120891/index.json" --api-key ${{ secrets.NUGETTOKEN }} --SkipDuplicate
+      run: dotnet nuget push **/*.nupkg --source "https://nuget.pkg.github.com/bhuvanesh120891/index.json" --api-key ${{ secrets.NUGETTOKEN }} --skip-duplicate
     #- name: PushGithub
     #  run: nuget.exe push "**/*.nupkg" -NoSymbols -SkipDuplicate
     #  env:
