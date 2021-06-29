@@ -33,5 +33,5 @@ jobs:
       run: dotnet nuget add source --username bhuvanesh120891 --password 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 --store-password-in-clear-text --name github "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
     - name: Set Nuget apikey
       run: nuget setapikey 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 -source "https://nuget.pkg.github.com/bhuvanesh120891/index.json"
-    - name: Publish Nuget Package
-      run: dotnet nuget push **/*.nupkg --source "github" --api-key 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
+    #- name: Publish Nuget Package
+    #  run: dotnet nuget push **/*.nupkg --source "github" --api-key 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
