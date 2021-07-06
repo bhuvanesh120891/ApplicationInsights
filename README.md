@@ -28,3 +28,9 @@ Install the Nuget Package
 
 ### Cloud Role Name Telemetry Initializer
 // How to register the telemetry initializer
+This is a test!
+password=ex@mplepassword
+password=******
+More test...
+99999999999999999999
+AKIAIOSFODNN7EXAMPLT
