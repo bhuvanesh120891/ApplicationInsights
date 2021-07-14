@@ -28,4 +28,4 @@ Install the Nuget Package
 
 ### Cloud Role Name Telemetry Initializer
 // How to register the telemetry initializer
-AKIAIOSFODNN7EXAMPLT
+AKIAIOSFODNN7EXAMPLY
